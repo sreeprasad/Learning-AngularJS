@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html data-ng-app="">
+	
+	<script src="angular.min.js"> </script>
+	<script type="text/javascript">
+	
+	function simpleController($scope){
+
+		$scope.customers =[
+
+			{name:'Sreeprasad',city:'New York'},
+			{name:'Dhrissia',city:'Chennai'},
+			{name:'Rishad',city:'Cochin'},
+			{name:'Naga',city:'Banglore'},
+			{name:'Kanwal',city:'Australia'}
+
+		]
+
+	}		
+
+	</script>
+
+	 <body>
+
+	 	<h1> simple controller binding </h1>
+
+	 	<div class="showall" data-ng-controller="simpleController">
+
+	 		<h4> Write name </h4>
+
+	 		<input type="text" data-ng-model="name"/>
+
+	 		</br>
+
+	 		<ul>
+	 				<li data-ng-repeat="cust in customers | filter:name | orderBy:city"> {{cust.name}} . {{cust.city}}  </li>
+	 		</ul>
+
+	 	</div>
+
+
+	 </body>
+
+</html>

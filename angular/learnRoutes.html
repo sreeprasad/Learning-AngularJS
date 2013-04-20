@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html data-ng-app="thisIsAwesome">
+	
+	<script src="angular.min.js"> </script>
+	<script type="text/javascript">
+	
+	 var learnController = angular.module("thisIsAwesome",[]);
+
+	 learnController.config(function($routeProvider){
+
+
+	 	$routeProvider
+
+	 		.when('/',
+	 				{
+	 					controller : "simpleController",
+	 					templateUrl :"learnRoutesOneFolder/onlyName.html"
+
+	 				}
+	 			)
+	 		.when('/nameAndCity',
+	 				{
+	 					controller : "simpleController",
+	 					templateUrl : "learnRoutesTwoFolder/nameAndCity.html"
+
+	 				}
+	 			)
+	 		.otherwise({redirectTo:"/"});
+	 });
+
+ 
+	 var controllers= {};
+
+	 controllers.simpleController =  function  ($scope){
+
+	 		 $scope.customers =[
+
+	 				{name:'sree',city:'New York'},
+	 				{name:'Dhrissia',city:'Chennai'},
+	 				{name:'Sam',city:'Cochin'},
+	 				{name:'Kanwal',city:'Australia'}
+
+	 		];
+
+
+	 $scope.addCustomer = function (){
+
+	 	$scope.customers.push(
+	 		{ 	
+	 			name:$scope.newCustomer.name, 
+	 			city:$scope.newCustomer.city
+	 		});
+	};
+
+	 	};
+
+	 learnController.controller(controllers);
+	  
+	</script>
+
+	 <body>
+
+	 	<!-- placeholder for view -->
+	 	<div data-ng-view=""></div>
+
+	 	<!--
+	 	<h1> simple controller binding </h1>
+
+	 	<div class="showall" data-ng-controller="simpleController">
+
+	 		<h4> Write name </h4>
+
+	 		<input type="text" data-ng-model="name"/>
+
+	 		</br>
+
+	 		<ul>
+	 				<li data-ng-repeat="cust in customers | filter:name | orderBy:city"> {{cust.name}} . {{cust.city}}  </li>
+	 		</ul>
+
+	 	</div>
+		-->
+
+	 </body>
+
+</html>

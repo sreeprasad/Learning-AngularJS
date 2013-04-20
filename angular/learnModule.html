@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html data-ng-app="thisIsAwesome">
+	
+	<script src="angular.min.js"> </script>
+	<script type="text/javascript">
+	
+	 var learnController = angular.module("thisIsAwesome",[]);
+
+	 var controllers= {};
+
+	 controllers.simpleController =  function  ($scope){
+
+	 		 $scope.customers =[
+
+	 				{name:'sree',city:'New York'},
+	 				{name:'Dhrissia',city:'Chennai'},
+	 				{name:'Sam',city:'Cochin'},
+	 				{name:'Kanwal',city:'Australia'}
+
+	 		];
+	 	};
+
+	 learnController.controller(controllers);
+	  
+
+	</script>
+
+	 <body>
+
+	 	 
+	 	<h1> simple controller binding </h1>
+
+	 	<div class="showall" data-ng-controller="simpleController">
+
+	 		<h4> Write name </h4>
+
+	 		<input type="text" data-ng-model="name"/>
+
+	 		</br>
+
+	 		<ul>
+	 				<li data-ng-repeat="cust in customers | filter:name | orderBy:city"> {{cust.name}} . {{cust.city}}  </li>
+	 		</ul>
+
+	 	</div>
+			 
+
+	 </body>
+
+</html>

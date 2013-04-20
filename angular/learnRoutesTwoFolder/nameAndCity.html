@@ -1,0 +1,26 @@
+ 
+
+	 	<div class="showall" data-ng-controller="simpleController">
+
+	 		 <h2> Can add new Customers here </h2>
+
+	 		<input type="text" data-ng-model="filter.name"/>
+
+	 		</br>
+
+	 		<ul>
+	 				<li data-ng-repeat="cust in customers | filter:filter.name "> 
+	 					{{cust.name}} , {{cust.city}}
+	 			    </li>
+	 		</ul>
+	 						<h3> Enter new Customer name </h3>
+	 				 		<input type="text" data-ng-model="newCustomer.name"/>
+							<h3> Enter new Customer city </h3>
+	 				 		<input type="text" data-ng-model="newCustomer.city"/>
+	 				 		 
+	 				 		 <button data-ng-click="addCustomer()"> Add Customer </button>
+
+	 				 		 <br/>
+	 				 		 <a href="#/onlyName">See all Customers </a>
+	 	</div>
+ 
