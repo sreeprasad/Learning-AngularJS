@@ -1,0 +1,18 @@
+ 
+	 	<div class="showall" data-ng-controller="simpleController">
+	 		<h1> Only name  </h1>
+
+	 		<h4> Write name </h4>
+
+	 		<input type="text" data-ng-model="name"/>
+
+	 		</br>
+
+	 		<ul>
+	 				<li data-ng-repeat="cust in customers | filter:name "> {{cust.name}} 
+	 			    </li>
+	 		</ul>
+
+	 	</div>
+
+ 
