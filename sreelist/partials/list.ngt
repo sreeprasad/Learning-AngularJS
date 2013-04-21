@@ -1,0 +1,40 @@
+<div class="wrapper">
+	
+	<h1>This is <span data-ng-bind="name">...</span></h1>
+<!--	
+	<ul>	
+		<li data-ng-repeat="item in items">{{item.text}}</li>
+	</ul>
+-->
+	<form data-ng-submit="addingNewItems()">
+		<input type="text" data-ng-model="itemText" placeholder="Add new Item here "/>
+		<button type="submit" class="btn">Add</button>		
+	</form>
+
+	<form data-ng-submit="archivingDeletedItems()">
+		<button type="submit" class="btn"> Archive Deleted Items </button>
+	</form>
+
+	<style>
+		.delete-true{opacity:0.2;}
+	</style>
+
+	<ul>	
+		<li data-ng-repeat="item in items | filter:{deleted:false} | orderBy:'text':true" class="deleted-{{item.deleted}}">
+			{{item.text}}
+			<a href="" data-ng-click="deleteItemFromList(item)">(del)</a>
+		</li>
+	</ul>
+
+	<form data-ng-submit="unArchiveAllDeletedItems()">
+		<h1> Archived Items </h1> <button type="submit" class="btn"> UnArchiveAll</button>
+	</form>
+	
+	<ul>	
+		<li data-ng-repeat="item in items | filter:{archived:true}">
+			{{item.text}}
+			<a href="" data-ng-click="unarchiveItem(item)">(unarchive)</a>
+		</li>
+	</ul>
+
+</div>
