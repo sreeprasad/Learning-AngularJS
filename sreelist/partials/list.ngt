@@ -14,7 +14,9 @@
 	<form data-ng-submit="archivingDeletedItems()">
 		<button type="submit" class="btn"> Archive Deleted Items </button>
 	</form>
-
+	<form data-ng-submit="deleteAllItems()">
+		<button type="submit" class="btn"> Delete All </button>
+	</form>
 	<style>
 		.delete-true{opacity:0.2;}
 	</style>

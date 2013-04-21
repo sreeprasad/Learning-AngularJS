@@ -35,6 +35,13 @@ function ListController ($scope) {
 	 	 }
 	 }
 
+	 $scope.deleteAllItems = function(){
+	 	for(var i=0;i<$scope.items.length;i++){
+	 	 		$scope.items[i].deleted=true;
+	 	 		$scope.items[i].archived=false;
+	 	 	}
+	}
+
 	 $scope.unarchiveItem= function(item){
 	 	item.archived=false;
 	 	item.deleted=false;
